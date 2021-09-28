@@ -1,73 +1,132 @@
-body {
-    content: "";
-    position: fixed;
-    width: 100vw;
-    height: 100vh;
-    background-image: url(Imagenes/310606.jpg);
-    background-repeat: no-repeat;
-    z-index: -1;
-    background-size: cover;
+body:before {
+  content: "";
+  overflow: hidden;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(Imagenes/310606.jpg);
+  background-repeat: no-repeat;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
 }
 
-.col-md-12 {
-    opacity: 0.95;
-    width: 70%;
+.content-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.content {
+  opacity: 0.95;
+  position: absolute;
+  max-width: 100%;
+  height: 100%;
+  text-align: center;
+  justify-content: center;
+  color: white;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .content-wrapper {
+    width: auto;
+    height: auto;
+  }
+  .content {
     position: relative;
-    top: 250px;
-    left: 300px;
-    height: 550px;
-    text-align: center;
-    justify-content: center;
-    background-color: black;
-    color: white;
+    height: auto;
+  }
 }
 
+.alignment {
+  display: flex;
+  align-items: center;
+  background-color: black;
+}
 .titulo {
-    position: relative;
-    bottom: 63%;
-    font-family: 'Oswald', sans-serif;
-    font-size: 60px;
-    font-weight: 500;
+  position: relative;
+  font-family: "Oswald", sans-serif;
+  font-size: 60px;
+  font-weight: 500;
 }
 
 .quien {
-    font-family: 'Oswald', sans-serif;
-    font-size: 30px;
-    position: relative;
-    bottom: 60%;
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  position: relative;
 }
 
 ul {
-    font-family: 'Oswald', sans-serif;
-    font-size: 30px;
-    position: relative;
-    bottom: 52%;
-    right: 3%;
-    list-style: none;
-    text-align: justify;
-    justify-content: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 30px;
+  position: relative;
+  list-style: none;
+  text-align: justify;
+  justify-content: center;
+  padding: 0px;
 }
 
 .texto {
-    position: relative;
-    top: 30%;
-    width: 50%;
-    height: 50%;
+  position: relative;
+}
+.profile-image-wrapper {
+  position: relative;
+  height: 100%;
+}
+.profile-image {
+  position: absolute;
+  z-index: 9;
+  height: 100%;
+  background: black;
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease;
 }
 
+.profile-image:before {
+  transition: all 0.2s ease;
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  left: 100%;
+  background: transparent;
+}
+.profile-image:hover:before {
+  width: 100%;
+}
 .imagen {
-    width: 50%;
-    height: 550px;
-    position: relative;
-    left: 25%;
-    bottom: 275px;
-    transition: ease 500ms;
+  width: 100%;
+  position: relative;
+  transition: ease 500ms;
+  object-fit: contain;
+  overflow: hidden;
+  max-height: 500px;
 }
 
-.imagen:hover {
-    transform: scale(1.01);
-    box-shadow: 0px 0px 50px red;
+.profile-image:hover {
+  transform: translate(-105%, 0);
 }
-li{
-    padding: 2px;
+@media screen and (max-width: 768px) {
+  .profile-image {
+    position: relative;
+  }
+  .profile-image:before {
+    display: none;
+  }
+  .profile-image:hover {
+    transform: translate(0, 0);
+  }
+}
+.imagen:hover {
+  box-shadow: 0px 0px 50px red;
+}
+li {
+  padding: 2px;
 }
